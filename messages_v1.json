@@ -1,0 +1,548 @@
+{
+  "conversations": {
+    "All": [
+      {
+        "ts": "16:58:29",
+        "epoch": 1762534709.5433526,
+        "direction": "out",
+        "text": "hello?",
+        "src": "M6WAR",
+        "dst": "CQ"
+      },
+      {
+        "ts": "16:58:29",
+        "epoch": 1762534709.5433526,
+        "direction": "out",
+        "text": "hello?",
+        "src": "M6WAR",
+        "dst": "CQ"
+      },
+      {
+        "ts": "16:59:25",
+        "epoch": 1762534765.8810189,
+        "direction": "out",
+        "text": "**M6WAR",
+        "src": "M6WAR",
+        "dst": "CQ"
+      },
+      {
+        "ts": "17:04:11",
+        "epoch": 1762535051.8036175,
+        "direction": "in",
+        "text": "**M0OLI /M6WAR",
+        "src": "M0OLI",
+        "dst": "CQ"
+      },
+      {
+        "ts": "17:09:25",
+        "epoch": 1762535365.8842747,
+        "direction": "out",
+        "text": "**M6WAR /M0OLI",
+        "src": "M6WAR",
+        "dst": "CQ"
+      },
+      {
+        "ts": "17:11:30",
+        "epoch": 1762535490.1449385,
+        "direction": "out",
+        "text": "Hello",
+        "src": "M6WAR",
+        "dst": "M0OLI"
+      },
+      {
+        "ts": "17:12:06",
+        "epoch": 1762535526.3803637,
+        "direction": "out",
+        "text": "Hello test test",
+        "src": "M6WAR",
+        "dst": "M0OLI"
+      },
+      {
+        "ts": "17:12:18",
+        "epoch": 1762535538.667868,
+        "direction": "in",
+        "text": "Testing 123",
+        "src": "M0OLI",
+        "dst": "M6WAR"
+      }
+    ],
+    "Settings": [
+      {
+        "ts": "15:01:02",
+        "epoch": 1762527662.2025068,
+        "direction": "sys",
+        "text": "Wire TX↔RX audio between Teensy RPR TNCs.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "15:01:02",
+        "epoch": 1762527662.2031305,
+        "direction": "sys",
+        "text": "Set MyCall, then Connect. Preflight + KISS run automatically.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "15:01:02",
+        "epoch": 1762527662.2035904,
+        "direction": "sys",
+        "text": "Messages: newest at top, per-day headers. Beacons in left column.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "15:07:37",
+        "epoch": 1762528057.5211875,
+        "direction": "sys",
+        "text": "Wire TX↔RX audio between Teensy RPR TNCs.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "15:07:37",
+        "epoch": 1762528057.5216699,
+        "direction": "sys",
+        "text": "Set MyCall, then Connect. Preflight + KISS run automatically.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "15:07:37",
+        "epoch": 1762528057.5220554,
+        "direction": "sys",
+        "text": "Messages: newest at top, per-day headers. Beacons in left column.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "15:09:39",
+        "epoch": 1762528179.355807,
+        "direction": "sys",
+        "text": "[INFO] Disconnected.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:57:54",
+        "epoch": 1762534674.6444595,
+        "direction": "sys",
+        "text": "Wire TX↔RX audio between Teensy RPR TNCs.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:57:54",
+        "epoch": 1762534674.6449027,
+        "direction": "sys",
+        "text": "Set MyCall, then Connect. Preflight + KISS run automatically.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:57:54",
+        "epoch": 1762534674.6453166,
+        "direction": "sys",
+        "text": "Messages: newest at top, per-day headers. Beacons in left column.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:23",
+        "epoch": 1762534703.355798,
+        "direction": "sys",
+        "text": "[INFO] Connected to COM7",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.3592064,
+        "direction": "sys",
+        "text": "[PRE] Running preflight + KISS...",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.4516976,
+        "direction": "sys",
+        "text": "[RAW] \u001a",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.4517322,
+        "direction": "sys",
+        "text": "[RAW] =============================================",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.4517357,
+        "direction": "sys",
+        "text": "[RAW] =  RPR><TNC V.0.79, (C) SCS GmbH & Co. KG   =",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.4517379,
+        "direction": "sys",
+        "text": "[RAW] = AX.25 Kernel V.2.7b, (C) NORD><LINK e. V. =",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.4517398,
+        "direction": "sys",
+        "text": "[RAW] =============================================",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.563401,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC %ZK",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.7638953,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC X 1",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:24",
+        "epoch": 1762534704.9643917,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC I M6WAR",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:25",
+        "epoch": 1762534705.164853,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC %B R300",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:25",
+        "epoch": 1762534705.3657496,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC %ZS",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:25",
+        "epoch": 1762534705.5661922,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC @K",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "16:58:25",
+        "epoch": 1762534705.8715768,
+        "direction": "sys",
+        "text": "[PRE] Done. Now in KISS mode (R300). Ready to chat.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:15",
+        "epoch": 1762535415.8033457,
+        "direction": "sys",
+        "text": "[INFO] Disconnected.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:26",
+        "epoch": 1762535426.5165207,
+        "direction": "sys",
+        "text": "Wire TX↔RX audio between Teensy RPR TNCs.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:26",
+        "epoch": 1762535426.51714,
+        "direction": "sys",
+        "text": "Set MyCall, then Connect. Preflight + KISS run automatically.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:26",
+        "epoch": 1762535426.5177221,
+        "direction": "sys",
+        "text": "Messages: newest at top, per-day headers. Beacons shown on left.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:32",
+        "epoch": 1762535432.25476,
+        "direction": "sys",
+        "text": "[WARN] Set MyCall before connecting TNC.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:44",
+        "epoch": 1762535444.0044358,
+        "direction": "sys",
+        "text": "[INFO] Connected to COM6",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.0162795,
+        "direction": "sys",
+        "text": "[PRE] Running preflight + KISS...",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.0940957,
+        "direction": "sys",
+        "text": "[RAW] \u001a",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.0941215,
+        "direction": "sys",
+        "text": "[RAW] =============================================",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.0941248,
+        "direction": "sys",
+        "text": "[RAW] =  RPR><TNC V.0.79, (C) SCS GmbH & Co. KG   =",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.0941274,
+        "direction": "sys",
+        "text": "[RAW] = AX.25 Kernel V.2.7b, (C) NORD><LINK e. V. =",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.0941293,
+        "direction": "sys",
+        "text": "[RAW] =============================================",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.2198305,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC %ZK",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.3143783,
+        "direction": "sys",
+        "text": "[RAW] * %ZK",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.4204743,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC X 1",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.4209225,
+        "direction": "sys",
+        "text": "[RAW] * X 1",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.6209297,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC I M6WAR",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.639943,
+        "direction": "sys",
+        "text": "[RAW] * I M6WAR",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.8214269,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC %B R300",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:45",
+        "epoch": 1762535445.860518,
+        "direction": "sys",
+        "text": "[RAW] * %B R300",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:46",
+        "epoch": 1762535446.021747,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC %ZS",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:46",
+        "epoch": 1762535446.078834,
+        "direction": "sys",
+        "text": "[RAW] * %ZS",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:46",
+        "epoch": 1762535446.22262,
+        "direction": "sys",
+        "text": "[TX-CMD] ESC @K",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:46",
+        "epoch": 1762535446.2975426,
+        "direction": "sys",
+        "text": "[RAW] * @K",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:10:46",
+        "epoch": 1762535446.5467503,
+        "direction": "sys",
+        "text": "[PRE] Done. Now in KISS mode (R300). Ready to chat.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:25:05",
+        "epoch": 1762536305.953579,
+        "direction": "sys",
+        "text": "Wire TX↔RX audio between Teensy RPR TNCs.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:25:05",
+        "epoch": 1762536305.95441,
+        "direction": "sys",
+        "text": "Set MyCall, then Connect. Preflight + KISS run automatically.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:25:05",
+        "epoch": 1762536305.9553459,
+        "direction": "sys",
+        "text": "Messages: newest at top, per-day headers. Beacons shown on left.",
+        "src": "",
+        "dst": ""
+      },
+      {
+        "ts": "17:25:08",
+        "epoch": 1762536308.3503633,
+        "direction": "sys",
+        "text": "[INFO] Disconnected.",
+        "src": "",
+        "dst": ""
+      }
+    ],
+    "M6WAR": [
+      {
+        "ts": "16:59:25",
+        "epoch": 1762534765.8810189,
+        "direction": "out",
+        "text": "**M6WAR",
+        "src": "M6WAR",
+        "dst": "CQ"
+      },
+      {
+        "ts": "17:09:25",
+        "epoch": 1762535365.8842747,
+        "direction": "out",
+        "text": "**M6WAR /M0OLI",
+        "src": "M6WAR",
+        "dst": "CQ"
+      }
+    ],
+    "M0OLI": [
+      {
+        "ts": "17:04:11",
+        "epoch": 1762535051.8036175,
+        "direction": "in",
+        "text": "**M0OLI /M6WAR",
+        "src": "M0OLI",
+        "dst": "CQ"
+      },
+      {
+        "ts": "17:11:30",
+        "epoch": 1762535490.1449385,
+        "direction": "out",
+        "text": "Hello",
+        "src": "M6WAR",
+        "dst": "M0OLI"
+      },
+      {
+        "ts": "17:12:06",
+        "epoch": 1762535526.3803637,
+        "direction": "out",
+        "text": "Hello test test",
+        "src": "M6WAR",
+        "dst": "M0OLI"
+      },
+      {
+        "ts": "17:12:18",
+        "epoch": 1762535538.667868,
+        "direction": "in",
+        "text": "Testing 123",
+        "src": "M0OLI",
+        "dst": "M6WAR"
+      }
+    ]
+  }
+}
