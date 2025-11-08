@@ -33,11 +33,16 @@ def logmsg(*a):
 
 def app_path(name: str) -> str:
     """
-    Resolve a file path relative to this script's directory.
-    Used for settings/log/messages files to keep them beside the .py.
+    Resolve a file path relative to the running program:
+      - If frozen as an .exe, use the folder containing the .exe
+      - Otherwise, use the folder containing this .py file
+    This keeps settings/log/messages beside the visible program file.
     """
     try:
-        base = os.path.dirname(os.path.abspath(__file__))
+        if getattr(sys, "frozen", False):
+            base = os.path.dirname(sys.executable)
+        else:
+            base = os.path.dirname(os.path.abspath(__file__))
     except Exception:
         base = os.getcwd()
     return os.path.join(base, name)
@@ -1270,13 +1275,60 @@ class RobustChatSimpleV16:
     # ----- Persistence: messages & beacons -----
 
     def _load_messages(self):
+        """
+        Load message history from messages_v1.json.
+
+        Supports two layouts:
+        1) New (current) format:
+           {
+             "conversations": {
+               "All": [...],
+               "CALL1": [...],
+               ...
+             }
+           }
+
+        2) Legacy format (no wrapper):
+           {
+             "All": [...],
+             "CALL1": [...],
+             ...
+           }
+
+        In both cases we normalise into self.conversations.
+        """
         try:
-            if os.path.exists(self.messages_file):
-                with open(self.messages_file, "r", encoding="utf-8", errors="replace") as f:
-                    data = json.load(f)
-                conv = data.get("conversations", {})
-                if isinstance(conv, dict):
-                    self.conversations.update(conv)
+            if not os.path.exists(self.messages_file):
+                return
+
+            with open(self.messages_file, "r", encoding="utf-8", errors="replace") as f:
+                data = json.load(f)
+
+            conv = None
+
+            # Preferred: wrapped format
+            if isinstance(data, dict) and "conversations" in data:
+                maybe = data.get("conversations")
+                if isinstance(maybe, dict):
+                    conv = maybe
+
+            # Fallback: legacy direct mapping
+            if conv is None and isinstance(data, dict):
+                # Heuristic: if all values are lists/dicts, treat as conversations map
+                if all(isinstance(v, (list, dict)) for v in data.values()):
+                    conv = data
+
+            if isinstance(conv, dict):
+                # Merge into existing structure
+                for key, msgs in conv.items():
+                    if not isinstance(msgs, list):
+                        continue
+                    self.conversations.setdefault(key, [])
+                    # Shallow copy each message dict to be safe
+                    for m in msgs:
+                        if isinstance(m, dict):
+                            self.conversations[key].append(dict(m))
+
         except Exception as e:
             logmsg(f"Failed to load messages_v1.json (ignored): {e}")
 
