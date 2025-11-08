@@ -83,7 +83,7 @@ PREFIX_COUNTRY_FLAG = {
 class RobustChatSimpleV16:
     def __init__(self, master: tk.Tk):
         self.master = master
-        self.master.title("Robust Chat Simple v1.6")
+        self.master.title("Robust Chat Simple v1.7.1")
         self.master.configure(bg="#0b141a")
         self.master.geometry("980x600")
         self.master.minsize(800, 480)
@@ -1627,34 +1627,123 @@ class RobustChatSimpleV16:
         self.log(f"[BEACON] {parent} children={child_calls} Lat {lat:.5f} Lon {lon:.5f}")
 
     def _parse_beacon_line(self, line: str):
-        # Expect format:
-        # **M0OLI /M6WAR /2E0OLI Lat nn.nnnnn Lon nn.nnnnn
-        s = line.strip()
-        if not s.startswith("**"):
+        """
+        Backwards-compatible ASCII beacon parser.
+        Delegates into _update_beacons_from_text so:
+          - parent/children always recorded
+          - Lat/Lon optional
+        """
+        txt = (line or "").strip()
+        if not txt.startswith("**"):
             return
-        m = re.search(
-            r"^\*\*(?P<parent>\S+)\s+(?P<rest>.+?)Lat\s+(?P<lat>[-+]?\d+\.\d+)\s+Lon\s+(?P<lon>[-+]?\d+\.\d+)",
+        try:
+            self._update_beacons_from_text(txt)
+        except Exception as e:
+            self.log(f"[BEACON] parse error: {e}")
+
+    
+    def _update_beacons_from_text(self, txt: str, now: float = None):
+        """
+        Unified beacon parser for both ASCII and KISS sources.
+
+        Accepts:
+          **PARENT /CHILD1 /CHILD2 ... [Lat .. Lon ..]
+
+        Behaviour:
+          - Always records parent + children in self.beacons
+          - Always writes link_graph.json via _save_link_graph()
+          - Marks self.links[parent] if MYCALL is one of the children
+          - If Lat/Lon present, also updates positions.json + locator
+          - Works even if no Lat/Lon is present (graph still updated)
+        """
+        if not txt:
+            return
+        txt = txt.strip()
+        if not txt.startswith("**"):
+            return
+
+        if now is None:
+            now = time.time()
+
+        s = txt
+
+        # Optional Lat/Lon block
+        lat = lon = None
+        mpos = re.search(
+            r"Lat\s+([-+]?\d+\.\d+)\s+Lon\s+([-+]?\d+\.\d+)",
             s,
             flags=re.IGNORECASE,
         )
-        if not m:
-            return
-        parent = m.group("parent").strip()
-        rest = m.group("rest")
-        children = []
-        for token in rest.split():
-            if token.startswith("/"):
-                c = token.lstrip("/").strip()
-                if c:
-                    children.append(c)
-        try:
-            lat = float(m.group("lat"))
-            lon = float(m.group("lon"))
-        except Exception:
-            return
-        self._enqueue_ui(lambda: self._record_beacon_with_position(parent, children, lat, lon))
+        if mpos:
+            try:
+                lat = float(mpos.group(1))
+                lon = float(mpos.group(2))
+            except Exception:
+                lat = lon = None
+            s_nopos = s[: mpos.start()].strip()
+        else:
+            s_nopos = s
 
-    # ----- Serial / connect -----
+        tokens = s_nopos.split()
+        if not tokens:
+            return
+        if not tokens[0].startswith("**"):
+            return
+
+        parent_raw = tokens[0].lstrip("*").strip()
+        if not parent_raw:
+            return
+
+        parent = self._callsign_base(parent_raw)
+        if not parent:
+            return
+
+        # Collect children (may be empty; still track parent)
+        child_bases = []
+        for tok in tokens[1:]:
+            tok = tok.strip()
+            if tok.startswith("/") and len(tok) > 1:
+                c = self._callsign_base(tok[1:])
+                if c:
+                    child_bases.append(c)
+
+        be = self.beacons.setdefault(parent, {"last": now, "children": {}})
+        be["last"] = now
+        for c in child_bases:
+            be["children"][c] = now
+
+        # Link if MYCALL appears in children
+        my = self._callsign_base(self.call_var.get() or "")
+        if my and my in child_bases:
+            self.links[parent] = now
+
+        # Persist link graph regardless of position
+        try:
+            self._save_link_graph()
+        except Exception:
+            pass
+
+        # If position present, update positions + locator
+        if lat is not None and lon is not None:
+            try:
+                self.positions[parent] = {
+                    "lat": float(lat),
+                    "lon": float(lon),
+                    "epoch": float(now),
+                }
+                self._save_positions()
+                self._enqueue_ui(self._draw_locator_compass)
+            except Exception:
+                pass
+
+        # Refresh Beacon Heard UI
+        try:
+            self._refresh_beacon_listbox()
+        except Exception:
+            pass
+
+# ----- Serial / connect -----
+
 
     def _populate_ports(self):
         ports = []
@@ -1967,14 +2056,11 @@ class RobustChatSimpleV16:
 
         now = time.time()
 
-        # Beacon frames (start with **): update beacon/link state only
+        # Beacon frames (start with **): update beacon/link/positions
         if txt.startswith("**"):
             def do_beacon():
                 try:
-                    if hasattr(self, "_update_beacons_from_text"):
-                        self._update_beacons_from_text(txt, now)
-                    if hasattr(self, "_refresh_beacon_listbox"):
-                        self._refresh_beacon_listbox()
+                    self._update_beacons_from_text(txt, now)
                 except Exception as e:
                     self.log(f"[KISS] Beacon update error: {e}")
             self._enqueue_ui(do_beacon)
