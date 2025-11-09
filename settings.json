@@ -1,4 +1,7 @@
 {
-  "last_port": "COM7",
-  "mycall": "M0OLI"
+  "mycall": "",
+  "beacon_interval": "Off",
+  "last_connected_tnc": "",
+  "audio_in": "",
+  "audio_out": ""
 }
