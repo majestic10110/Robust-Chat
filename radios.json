@@ -1,0 +1,89 @@
+[
+  {
+    "Radio Model": "IC-703",
+    "Manufacturer": "Icom",
+    "Protocol": "CI-V",
+    "CI-V Address": "68",
+    "Default Baud Rate": 19200
+  },
+  {
+    "Radio Model": "IC-705",
+    "Manufacturer": "Icom",
+    "Protocol": "CI-V",
+    "CI-V Address": "A4",
+    "Default Baud Rate": 19200
+  },
+  {
+    "Radio Model": "TX-500MP",
+    "Manufacturer": "Lab599",
+    "Protocol": "Kenwood",
+    "Default Baud Rate": 9600
+  },
+  {
+    "Radio Model": "IC-7300",
+    "Manufacturer": "Icom",
+    "Protocol": "CI-V",
+    "CI-V Address": "94",
+    "Default Baud Rate": 19200
+  },
+  {
+    "Radio Model": "FT-891",
+    "Manufacturer": "Yaesu",
+    "Protocol": "YaesuBinary",
+    "Default Baud Rate": 4800,
+    "kenwood_fa_supported": true
+  },
+  {
+    "Radio Model": "FTDX10",
+    "Manufacturer": "Yaesu",
+    "Protocol": "YaesuBinary",
+    "Default Baud Rate": 38400,
+    "kenwood_fa_supported": true
+  },
+  {
+    "Radio Model": "IC-7610",
+    "Manufacturer": "Icom",
+    "Protocol": "CI-V",
+    "CI-V Address": "98",
+    "Default Baud Rate": 19200
+  },
+  {
+    "Radio Model": "FTDX-101MP",
+    "Manufacturer": "Yaesu",
+    "Protocol": "YaesuBinary",
+    "Default Baud Rate": 38400,
+    "kenwood_fa_supported": true
+  },
+  {
+    "Radio Model": "TS-590SG",
+    "Manufacturer": "Kenwood",
+    "Protocol": "Kenwood",
+    "Default Baud Rate": 115200
+  },
+  {
+    "Radio Model": "K4",
+    "Manufacturer": "Elecraft",
+    "Protocol": "Kenwood",
+    "Default Baud Rate": 9600
+  },
+  {
+    "Radio Model": "FT-710",
+    "Manufacturer": "Yaesu",
+    "Protocol": "YaesuBinary",
+    "Default Baud Rate": 38400,
+    "kenwood_fa_supported": true
+  },
+  {
+    "Radio Model": "TS-890S",
+    "Manufacturer": "Kenwood",
+    "Protocol": "Kenwood",
+    "Default Baud Rate": 115200
+  },
+  {
+    "Radio Model": "Generic Radio (CI-V)",
+    "Manufacturer": "Icom",
+    "Protocol": "CI-V",
+    "CI-V Address": "94",
+    "Default Baud Rate": 19200
+  }
+]
